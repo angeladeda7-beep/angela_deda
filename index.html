@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Angela Deda</title>
-<meta name="version" content="2026-11-17, v134">
+<meta name="version" content="2026-11-17, v137">
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 </head>
 <body>
@@ -148,8 +148,11 @@ p { margin: 0; max-width: 60ch; }
 .wip-h { margin-top: 8px; }
 .deck-link { justify-self: start; }
 .p-links { display: flex; flex-wrap: wrap; gap: 6px 28px; margin-block: 8px; }
-.p-links a { font-size: 22px; line-height: 1.15; font-family: var(--sans-m); font-weight: 500; color: var(--fg) !important; }
+.p-links a { font-size: 17px; line-height: 1.15; letter-spacing: 0.02em; font-family: var(--sans-m); font-weight: 500; color: var(--fg) !important; }
 .p-links a:hover { color: var(--muted) !important; }
+.p-links a.epk { animation: epk 2.4s ease-in-out infinite; }
+@keyframes epk { 0%, 100% { opacity: 1; } 50% { opacity: 0.15; } }
+@media (prefers-reduced-motion: reduce) { .p-links a.epk { animation: none; } }
 .p-links a.back { font-size: 13px; font-weight: 400; flex-basis: 100%; }
 .spec { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 6px 16px; margin: 0; }
 .spec dt { color: var(--muted); } .spec dd { margin: 0; }
@@ -530,7 +533,7 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
       [{ note: T('Images and visual system: <a href="#brd" style="color: var(--fg)">Biologia Surreale del Danno</a>',
                  'Immagini e visual system: <a href="#brd" style="color: var(--fg)">Biologia Surreale del Danno</a>'), c: '1 / 13' }],
       // the installation as a whole, frontal, next to the wall at work: one shared height
-      { cols: '1.7768fr 1.7778fr', items: [{ img: 'brd/setup/os-wall.jpg' }, { video: 'brd/setup/os-wall.mp4', ratio: '1280 / 720' }] },
+      [{ img: 'brd/setup/os-wall.jpg', c: '1 / 13' }],
     // each subject: its text on the left column, then a full-width row where every image shares one height (columns in the images' own ratios)
     { sec: [
     [{ text: T('Two tubes. A particle passes, the tube clicks. When both click almost together, it is a coincidence.',
@@ -808,7 +811,7 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
         <p class="ph-s">${[p.client, p.city, p.year].filter(Boolean).join(', ')}${p.role ? `<br><span class="m">${p.role}</span>` : ''}</p>
       </header>
       ${p.text ? `<p class="ph-l">${p.text}</p>` : ''}
-      ${p.deck || p.setup || p.parent ? `<div class="p-links">${p.parent ? `<a class="sw s back" href="#${p.parent}" style="color: var(--fg)">← ${T('Back to project', 'Torna al progetto')}</a>` : ''}${p.setup ? `<a class="sw s" href="#${p.id}-setup" style="color: var(--fg)">Set up →</a>` : ''}${p.deck ? `<a class="sw s" href="#${p.id}-deck" style="color: var(--fg)">${T('Presentation', 'Presentazione')} →</a>` : ''}</div>` : ''}
+      ${p.deck || p.setup || p.parent ? `<div class="p-links">${p.parent ? `<a class="sw s back" href="#${p.parent}" style="color: var(--fg)">← ${T('Back to project', 'Torna al progetto')}</a>` : ''}${p.setup ? `<a class="sw s" href="#${p.id}-setup" style="color: var(--fg)">Set up →</a>` : ''}${p.deck ? `<a class="sw s epk" href="#${p.id}-deck" style="color: var(--fg)">EPK →</a>` : ''}</div>` : ''}
       ${(p.order || ['wip', 'ascii', 'lead', 'film', 'shows', 'frames']).map(b => blocks[b]()).join('\n')}`;
     startShow();
     playHls(document.getElementById('project-body'));
@@ -853,7 +856,7 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
   const GROUPS = [
     [...nums(20).map(k => ({ i: `brd/brd-${p2(k)}.webp` })), ...['brd/brd-video.mp4', 'brd/brd-wip-1.mp4', 'brd/brd-wip-2.mp4', 'brd/wip-insetti-37b.mp4', 'brd/wip-insetti-43b.mp4', 'brd/wip-td-0.mp4', 'brd/wip-td-3.mp4',
       'pres/video/insetti_09.mp4', 'pres/video/insetti_37.mp4', 'pres/video/insetti_43.mp4', 'pres/video/pj_testwan.mp4', 'pres/video/tdmovie_6.mp4'].map(m => ({ m })), { i: 'brd/brd-td-1.jpg' }, { i: 'brd/brd-td-2.jpg' }].map(x => ({ ...x, p: 'brd' })),
-    [{ i: 'brd/setup/os-corner.jpg' }, { i: 'brd/setup/os-roll.jpg' }, { i: 'brd/setup/os-wall.jpg' }, { i: 'brd/setup/os-geiger-board.jpg' }, { i: 'brd/setup/os-screen.jpg' }, { i: 'brd/setup/os-wall-coincidence.jpg' }, { i: 'brd/setup/ticket_bitmap.png' }, { i: 'brd/setup/fuse-cover.jpg' }, { m: 'brd/setup/os-wall.mp4' }, { m: 'brd/setup/os-roll.mp4' }].map(x => ({ ...x, p: 'fuse' })),
+    [{ i: 'brd/setup/os-corner.jpg' }, { i: 'brd/setup/os-roll.jpg' }, { i: 'brd/setup/os-wall.jpg' }, { i: 'brd/setup/os-geiger-board.jpg' }, { i: 'brd/setup/os-screen.jpg' }, { i: 'brd/setup/os-wall-coincidence.jpg' }, { i: 'brd/setup/ticket_bitmap.png' }, { i: 'brd/setup/fuse-cover.jpg' }, { m: 'brd/setup/os-roll.mp4' }].map(x => ({ ...x, p: 'fuse' })),
     [{ i: 'os/os-front-black.jpg' }, { i: 'os/os-front-white.jpg' }, { i: 'os/os-back.jpg' }, { i: 'os/os-wall.jpg' }, { m: 'os/os-stairs.mp4' }].map(x => ({ ...x, p: 'os' })),
     [...nums(15).map(k => ({ i: `cs/ed/cs-${p2(k)}.jpg` })), { i: 'cs/cover.jpg' }, { m: 'cs/cs-flip-1.mp4' }].map(x => ({ ...x, p: 'cs' })),
     ['010', '042', '074', '090', '138', '146', '154', '170', '226', '258', '274', '298'].map(n => ({ i: `cs/still-${n}.jpg`, p: 'film' })),
@@ -1149,6 +1152,10 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
     f.anchor = th;
     f.net = [Math.cos(th) * 1.28, clamp(m[1] * 1.8 + (((f.n * 37) % 7) - 3) * 0.05, -0.55, 0.55), Math.sin(th) * 1.28];
   });
+  { // spread evenly around the hubs: keep each frame's order by angle, but give every frame the same share of the circle
+    const ord = [...frames].sort((a, b) => a.anchor - b.anchor), th0 = ord[0].anchor;
+    ord.forEach((f, i) => { const th = th0 + i / N * TAU; f.anchor = th; f.net[0] = Math.cos(th) * 1.28; f.net[2] = Math.sin(th) * 1.28; });
+  }
   for (let it = 0; it < 500; it++) { // relax: no two frames on top of each other, all on a shell around the hubs
     for (let i = 0; i < N; i++) for (let j = i + 1; j < N; j++) {
       const a = frames[i].net, b = frames[j].net, d = [a[0] - b[0], (a[1] - b[1]) * 1.4, a[2] - b[2]], L = Math.hypot(...d) || 1e-3;
@@ -1172,7 +1179,7 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
   /* layout 3, ring: the original orbit */
   const target = (f, L) => L === 'ring' ? { c: [Math.cos(f.a) * 1.3, 0, Math.sin(f.a) * 1.3], ang: f.a, face: 0, w: 0.2, h: 0.15 }
     : L === 'years' ? { c: f.yr, ang: 0, face: 1, w: 0.26, h: 0.195 }
-    : { c: [f.net[0], f.net[1] * NY, f.net[2]], ang: f.anchor, face: 0.6, w: 0.2, h: 0.15 };
+    : { c: [f.net[0], f.net[1] * NY, f.net[2]], ang: f.anchor, face: 0.9, w: 0.2, h: 0.15 };
   let lay = 'net', layK = 1, layStart = 0, NY = 1; // NY: on a tall phone screen the network stretches upward
   const wFrom = { net: 1, years: 0 }, wNow = { net: 1, years: 0 };
   frames.forEach(f => { f.from = target(f, lay); });
