@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Angela Deda</title>
-<meta name="version" content="2026-11-17, v139">
+<meta name="version" content="2026-11-17, v141">
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 </head>
 <body>
@@ -129,7 +129,7 @@ p { margin: 0; max-width: 60ch; }
 .tun-stage { position: sticky; top: 0; height: 100svh; overflow: hidden; perspective: 900px; perspective-origin: 50% 45%; margin-inline: -16px; }
 .tun-world { position: absolute; inset: 0; transform-style: preserve-3d; }
 .tun-it { position: absolute; left: 50%; top: 45%; width: clamp(120px, 15vw, 240px); display: block; transform-style: preserve-3d; will-change: transform, opacity; }
-.tun-it img, .tun-it video { display: block; width: 100%; height: auto; background: var(--surface); }
+.tun-it img, .tun-it video { display: block; width: auto; max-width: 100%; height: auto; max-height: clamp(130px, 16vw, 230px); margin-inline: auto; background: var(--surface); }
 @media (max-width: 760px) { .tun-it { width: 34vw; } }
 .contact-links { font-size: 17px; line-height: 1.3; gap: 6px; }
 .contact-links a:hover { color: var(--muted); }
@@ -888,9 +888,9 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
         return `<${tag} class="tun-it">${media}</${it.p ? 'a' : 'span'}>`;
       }).join('');
       const items = [...world.children].map((el, i) => {
-        // four lanes around the centre, with free height and size, so the corridor feels full
-        const lane = i % 4, side = lane < 2 ? -1 : 1, inner = lane === 1 || lane === 2;
-        return { el, media: el.firstElementChild, on: false, x: side * (inner ? 0.1 + R() * 0.14 : 0.26 + R() * 0.16), y: (R() - 0.5) * 0.62, s: 0.6 + R() * 0.55, tilt: (R() - 0.5) * 10 };
+        // a ring around the centre: each work turns by the golden angle from the one before, so neighbours never sit on top of each other
+        const a = i * 2.39996 + R() * 0.25, rr = 0.82 + R() * 0.3;
+        return { el, media: el.firstElementChild, on: false, x: Math.cos(a) * 0.3 * rr, y: Math.sin(a) * 0.26 * rr, s: 0.72 + R() * 0.3, tilt: (R() - 0.5) * 8 };
       });
       const GAP = 150, L = items.length * GAP, FAR = 2600;
       wrap.style.height = `calc(${Math.round(items.length * 7)}vh + 100svh)`;
