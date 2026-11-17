@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Angela Deda</title>
-<meta name="version" content="2026-11-17, v132">
+<meta name="version" content="2026-11-17, v134">
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 </head>
 <body>
@@ -217,6 +217,8 @@ p { margin: 0; max-width: 60ch; }
 .proj .frames figure { gap: 2px; }
 .pnav { display: flex; justify-content: space-between; gap: 16px; }
 .pnav a:hover { color: var(--muted); }
+/* deter saving: no drag, no long-press menu on phones, no selection of media */
+img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 </style>
 
 <header class="top">
@@ -528,27 +530,28 @@ p { margin: 0; max-width: 60ch; }
       [{ note: T('Images and visual system: <a href="#brd" style="color: var(--fg)">Biologia Surreale del Danno</a>',
                  'Immagini e visual system: <a href="#brd" style="color: var(--fg)">Biologia Surreale del Danno</a>'), c: '1 / 13' }],
       // the installation as a whole, frontal, next to the wall at work: one shared height
-      { cols: '0.5624fr 1.7778fr', items: [{ img: 'brd/setup/install.jpg' }, { video: 'brd/setup/os-wall.mp4', ratio: '1280 / 720' }] },
+      { cols: '1.7768fr 1.7778fr', items: [{ img: 'brd/setup/os-wall.jpg' }, { video: 'brd/setup/os-wall.mp4', ratio: '1280 / 720' }] },
     // each subject: its text on the left column, then a full-width row where every image shares one height (columns in the images' own ratios)
     { sec: [
     [{ text: T('Two tubes. A particle passes, the tube clicks. When both click almost together, it is a coincidence.',
-                 'Due tubi. Passa una particella, il tubo fa clic. Quando scattano quasi insieme è una coincidenza.'), c: '1 / 6' }],
-    { cols: '1.3043fr 1.5437fr', items: [{ img: 'brd/setup/geiger.jpg' }, { img: 'brd/setup/gpio.jpg' }] },
+                 'Due tubi. Passa una particella, il tubo fa clic. Quando scattano quasi insieme è una coincidenza.'), c: '1 / 6' },
+     { img: 'brd/setup/os-geiger-board.jpg', c: '7 / 13' }],
     ] },
     { sec: [
       [{ text: T('A panel of readings comes alive at every pulse. The numbers are real; only the type of particle is imagined, and the panel admits it. At each coincidence a video from the visual system takes over the screen.',
                  'Un pannello di letture si anima a ogni impulso. I numeri sono veri; solo il tipo di particella è immaginato, e il pannello lo ammette. A ogni coincidenza un video del visual system prende lo schermo.'), c: '1 / 6' }],
+      { cols: '0.5628fr 1.7757fr', items: [{ img: 'brd/setup/os-screen.jpg' }, { img: 'brd/setup/os-wall-coincidence.jpg' }] },
       { cols: '1fr 1fr', items: [{ img: 'brd/setup/panel.png' }, { img: 'brd/setup/hud.png' }] },
     ] },
     { sec: [
       [{ text: T('The printer keeps the record, upside down so it reads straight as it comes out. Each coincidence prints a full sheet with an image from the archive of cells. The roll reaches the floor.',
                  'La stampante tiene il registro, capovolto perché si legga dritto mentre esce. Ogni coincidenza stampa un foglio intero con un’immagine dall’archivio delle cellule. Il rotolo arriva a terra.'), c: '1 / 6' }],
-      { cols: '0.3074fr 0.5622fr 0.5625fr', items: [{ img: 'brd/setup/ticket_bitmap.png' }, { img: 'brd/setup/print_roll.jpg' }, { video: 'brd/setup/os-roll.mp4', ratio: '720 / 1280' }] },
+      { cols: '0.3074fr 0.5628fr 0.5625fr', items: [{ img: 'brd/setup/ticket_bitmap.png' }, { img: 'brd/setup/os-roll.jpg' }, { video: 'brd/setup/os-roll.mp4', ratio: '720 / 1280' }] },
     ] },
     { sec: [
       [{ text: T('On the corner of the wall, the images of the visual system: cells and organisms before and after the damage. Underneath it all, a drone and a rhythm of clicks that every pulse disturbs.',
-                 'Sull’angolo della parete le immagini del visual system: cellule e organismi prima e dopo il danno. Sotto a tutto, un drone e un ritmo di click che ogni impulso disturba.'), c: '1 / 6' }],
-      { cols: '1fr 1fr 1fr', items: [{ img: 'brd/setup/setup_room.jpg' }, { img: 'brd/setup/prints_wall.jpg' }, { img: 'brd/setup/setup_full.jpg' }] },
+                 'Sull’angolo della parete le immagini del visual system: cellule e organismi prima e dopo il danno. Sotto a tutto, un drone e un ritmo di click che ogni impulso disturba.'), c: '1 / 6' },
+       { img: 'brd/setup/os-corner.jpg', c: '7 / 13' }],
     ] },
       ],
       flow: { en: '<div class="flow"><div class="fl-r"><span class="m">Particles in the room, cosmic muons</span></div><div class="fl-a">↓</div><div class="fl-r fl-2"><span>Geiger 1</span><span>Geiger 2</span></div><div class="fl-a">↓</div><div class="fl-r"><span>System, software written for the work</span><span class="m">Both tubes almost together: coincidence</span></div><div class="fl-a">↓</div><div class="fl-r fl-4"><span>Screen<br><span class="m">live data</span></span><span>Sound<br><span class="m">drone, clicks</span></span><span>Print<br><span class="m">thermal paper</span></span><span>Video<br><span class="m">at each coincidence</span></span></div><div class="fl-r fl-2 fl-n"><span class="m">Every pulse</span><span>panel, sound, a printed entry</span><span class="m">Coincidence</span><span>video, burst of clicks, full sheet</span></div></div>', it: '<div class="flow"><div class="fl-r"><span class="m">Particelle nella stanza, muoni cosmici</span></div><div class="fl-a">↓</div><div class="fl-r fl-2"><span>Geiger 1</span><span>Geiger 2</span></div><div class="fl-a">↓</div><div class="fl-r"><span>Sistema, software scritto per l’opera</span><span class="m">I due tubi quasi insieme: coincidenza</span></div><div class="fl-a">↓</div><div class="fl-r fl-4"><span>Schermo<br><span class="m">dati animati</span></span><span>Suono<br><span class="m">drone, click</span></span><span>Stampa<br><span class="m">carta termica</span></span><span>Video<br><span class="m">a ogni coincidenza</span></span></div><div class="fl-r fl-2 fl-n"><span class="m">Ogni impulso</span><span>pannello, suono, una voce stampata</span><span class="m">Coincidenza</span><span>video, raffica di click, foglio completo</span></div></div>' },
@@ -778,8 +781,8 @@ p { margin: 0; max-width: 60ch; }
       lead: () => p.lead ? `<video class="lead" src="${p.lead.src}" autoplay muted loop playsinline preload="auto" title="Play / pause"></video>` : '',
       film: () => !p.film ? '' : p.film.parts.length > 1
         // a long film in parts: each part its own player, one under the other
-        ? `${label(p.film.label)}<div class="film film-parts">${p.film.parts.map((src, k) => `<div><div class="s">${T('Part', 'Parte')} ${k + 1}</div><video class="film-v" src="${src}" poster="${p.film.posters[k]}" controls playsinline preload="metadata"></video></div>`).join('')}</div>`
-        : `${label(p.film.label)}<div class="film"><video class="film-v" src="${p.film.parts[0]}" ${p.film.poster ? `poster="${p.film.poster}"` : ''} controls playsinline preload="metadata"></video></div>`,
+        ? `${label(p.film.label)}<div class="film film-parts">${p.film.parts.map((src, k) => `<div><div class="s">${T('Part', 'Parte')} ${k + 1}</div><video class="film-v" src="${src}" poster="${p.film.posters[k]}" controls controlslist="nodownload noplaybackrate" disablepictureinpicture playsinline preload="metadata"></video></div>`).join('')}</div>`
+        : `${label(p.film.label)}<div class="film"><video class="film-v" src="${p.film.parts[0]}" ${p.film.poster ? `poster="${p.film.poster}"` : ''} controls controlslist="nodownload noplaybackrate" disablepictureinpicture playsinline preload="metadata"></video></div>`,
       editorial: () => p.editorial ? `<div class="ed">${p.editorial.map(entry => (entry.sec ? `<div class="ed-sec">` : '') + (entry.sec || [entry]).map(r => { const row = Array.isArray(r) ? r : r.items; return `<div class="ed-row${r.cols ? ' fr' : ''}"${r.cols ? ` style="grid-template-columns: ${r.cols}"` : ''}>${row.map(it => {
         const st = `${it.c ? `grid-column: ${it.c};` : ''}${it.mt ? ` margin-top: ${it.mt};` : ''}`;
         if (it.img) return `<img src="${it.img}" alt="" loading="lazy" style="${st}">`;
@@ -850,7 +853,7 @@ p { margin: 0; max-width: 60ch; }
   const GROUPS = [
     [...nums(20).map(k => ({ i: `brd/brd-${p2(k)}.webp` })), ...['brd/brd-video.mp4', 'brd/brd-wip-1.mp4', 'brd/brd-wip-2.mp4', 'brd/wip-insetti-37b.mp4', 'brd/wip-insetti-43b.mp4', 'brd/wip-td-0.mp4', 'brd/wip-td-3.mp4',
       'pres/video/insetti_09.mp4', 'pres/video/insetti_37.mp4', 'pres/video/insetti_43.mp4', 'pres/video/pj_testwan.mp4', 'pres/video/tdmovie_6.mp4'].map(m => ({ m })), { i: 'brd/brd-td-1.jpg' }, { i: 'brd/brd-td-2.jpg' }].map(x => ({ ...x, p: 'brd' })),
-    [{ i: 'brd/setup/prints_wall.jpg' }, { i: 'brd/setup/print_roll.jpg' }, { i: 'brd/setup/setup_room.jpg' }, { i: 'brd/setup/ticket_bitmap.png' }, { i: 'brd/setup/fuse-cover.jpg' }, { m: 'brd/setup/os-wall.mp4' }, { m: 'brd/setup/os-roll.mp4' }].map(x => ({ ...x, p: 'fuse' })),
+    [{ i: 'brd/setup/os-corner.jpg' }, { i: 'brd/setup/os-roll.jpg' }, { i: 'brd/setup/os-wall.jpg' }, { i: 'brd/setup/os-geiger-board.jpg' }, { i: 'brd/setup/os-screen.jpg' }, { i: 'brd/setup/os-wall-coincidence.jpg' }, { i: 'brd/setup/ticket_bitmap.png' }, { i: 'brd/setup/fuse-cover.jpg' }, { m: 'brd/setup/os-wall.mp4' }, { m: 'brd/setup/os-roll.mp4' }].map(x => ({ ...x, p: 'fuse' })),
     [{ i: 'os/os-front-black.jpg' }, { i: 'os/os-front-white.jpg' }, { i: 'os/os-back.jpg' }, { i: 'os/os-wall.jpg' }, { m: 'os/os-stairs.mp4' }].map(x => ({ ...x, p: 'os' })),
     [...nums(15).map(k => ({ i: `cs/ed/cs-${p2(k)}.jpg` })), { i: 'cs/cover.jpg' }, { m: 'cs/cs-flip-1.mp4' }].map(x => ({ ...x, p: 'cs' })),
     ['010', '042', '074', '090', '138', '146', '154', '170', '226', '258', '274', '298'].map(n => ({ i: `cs/still-${n}.jpg`, p: 'film' })),
@@ -1455,6 +1458,10 @@ p { margin: 0; max-width: 60ch; }
   try { if (localStorage.getItem('ad-view') === 'list') setView('list'); } catch (e) {}
 
 
+  // deter saving images and videos: no right-click menu or dragging on media
+  const isMedia = t => t && t.closest && t.closest('img, video, canvas, .sp, .tun-it');
+  document.addEventListener('contextmenu', e => { if (isMedia(e.target)) e.preventDefault(); });
+  document.addEventListener('dragstart', e => { if (isMedia(e.target)) e.preventDefault(); });
   addEventListener('hashchange', route);
   route();
   if (!reduce) requestAnimationFrame(tick);
