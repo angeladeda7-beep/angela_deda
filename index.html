@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Angela Deda</title>
-<meta name="version" content="2026-11-17, v138">
+<meta name="version" content="2026-11-17, v139">
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 </head>
 <body>
@@ -549,7 +549,7 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
     { sec: [
       [{ text: T('The printer keeps the record, upside down so it reads straight as it comes out. Each coincidence prints a full sheet with an image from the archive of cells. The roll reaches the floor.',
                  'La stampante tiene il registro, capovolto perché si legga dritto mentre esce. Ogni coincidenza stampa un foglio intero con un’immagine dall’archivio delle cellule. Il rotolo arriva a terra.'), c: '1 / 6' }],
-      { cols: '0.3074fr 0.5628fr 0.5625fr', items: [{ img: 'brd/setup/ticket_bitmap.png' }, { img: 'brd/setup/os-roll.jpg' }, { video: 'brd/setup/os-roll.mp4', ratio: '720 / 1280' }] },
+      { cols: '0.3074fr 0.5628fr', items: [{ img: 'brd/setup/ticket_bitmap.png' }, { img: 'brd/setup/os-roll.jpg' }] },
     ] },
     { sec: [
       [{ text: T('On the corner of the wall, the images of the visual system: cells and organisms before and after the damage. Underneath it all, a drone and a rhythm of clicks that every pulse disturbs.',
@@ -856,7 +856,7 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
   const GROUPS = [
     [...nums(20).map(k => ({ i: `brd/brd-${p2(k)}.webp` })), ...['brd/brd-video.mp4', 'brd/brd-wip-1.mp4', 'brd/brd-wip-2.mp4', 'brd/wip-insetti-37b.mp4', 'brd/wip-insetti-43b.mp4', 'brd/wip-td-0.mp4', 'brd/wip-td-3.mp4',
       'pres/video/insetti_09.mp4', 'pres/video/insetti_37.mp4', 'pres/video/insetti_43.mp4', 'pres/video/pj_testwan.mp4', 'pres/video/tdmovie_6.mp4'].map(m => ({ m })), { i: 'brd/brd-td-1.jpg' }, { i: 'brd/brd-td-2.jpg' }].map(x => ({ ...x, p: 'brd' })),
-    [{ i: 'brd/setup/os-corner.jpg' }, { i: 'brd/setup/os-roll.jpg' }, { i: 'brd/setup/os-wall.jpg' }, { i: 'brd/setup/os-geiger-board.jpg' }, { i: 'brd/setup/os-screen.jpg' }, { i: 'brd/setup/os-wall-coincidence.jpg' }, { i: 'brd/setup/ticket_bitmap.png' }, { i: 'brd/setup/fuse-cover.jpg' }, { m: 'brd/setup/os-roll.mp4' }].map(x => ({ ...x, p: 'fuse' })),
+    [{ i: 'brd/setup/os-corner.jpg' }, { i: 'brd/setup/os-roll.jpg' }, { i: 'brd/setup/os-wall.jpg' }, { i: 'brd/setup/os-geiger-board.jpg' }, { i: 'brd/setup/os-screen.jpg' }, { i: 'brd/setup/os-wall-coincidence.jpg' }, { i: 'brd/setup/ticket_bitmap.png' }, { i: 'brd/setup/fuse-cover.jpg' }].map(x => ({ ...x, p: 'fuse' })),
     [{ i: 'os/os-front-black.jpg' }, { i: 'os/os-front-white.jpg' }, { i: 'os/os-back.jpg' }, { i: 'os/os-wall.jpg' }, { m: 'os/os-stairs.mp4' }].map(x => ({ ...x, p: 'os' })),
     [...nums(15).map(k => ({ i: `cs/ed/cs-${p2(k)}.jpg` })), { i: 'cs/cover.jpg' }, { m: 'cs/cs-flip-1.mp4' }].map(x => ({ ...x, p: 'cs' })),
     ['010', '042', '074', '090', '138', '146', '154', '170', '226', '258', '274', '298'].map(n => ({ i: `cs/still-${n}.jpg`, p: 'film' })),
