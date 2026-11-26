@@ -4,11 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Angela Deda</title>
-<meta name="version" content="2026-11-17, v141">
+<meta name="version" content="2026-11-17, v143">
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 </head>
 <body>
-
 <style>
 /* Layout: exploded axonometric stack on white (one textured layer per project), menu on top, details in a bottom strip; Helvetica, small, black only */
 :root {
@@ -323,8 +322,8 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
       <div class="grid">
         <div class="c-3"></div>
         <p class="c-6">
-          <span lang="en">Currently Interaction &amp; Multimedia Designer at fuse*, Modena. TouchDesigner, generative systems and real-time graphics for installations and performances. AI image and video pipelines with ComfyUI, Runway and Midjourney. Background in art direction, editorial design and set design. BA Graphic Design &amp; Art Direction, NABA.</span>
-          <span lang="it">Attualmente Interaction &amp; Multimedia Designer presso fuse*, Modena. TouchDesigner, sistemi generativi e grafica real-time per installazioni e performance. Pipeline AI per immagini e video con ComfyUI, Runway e Midjourney. Background in art direction, progettazione editoriale e set design. BA Graphic Design &amp; Art Direction, NABA.</span>
+          <span lang="en">Currently Creative Technologist at fuse*. TouchDesigner, generative systems and real-time graphics for installations and performances. AI image and video pipelines with ComfyUI, Runway and Midjourney. Background in art direction, editorial design and set design. BA Graphic Design &amp; Art Direction, NABA.</span>
+          <span lang="it">Attualmente Creative Technologist presso fuse*. TouchDesigner, sistemi generativi e grafica real-time per installazioni e performance. Pipeline AI per immagini e video con ComfyUI, Runway e Midjourney. Background in art direction, progettazione editoriale e set design. BA Graphic Design &amp; Art Direction, NABA.</span>
         </p>
       </div>
       <div class="grid">
@@ -373,6 +372,7 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
   <section id="deck" hidden>
     <div class="deck-bar">
       <h1 id="deck-title"></h1>
+      <span class="s" id="deck-ctx"></span>
       <a class="sw s" id="deck-back" href="#index"><span lang="en">Back to project</span><span lang="it">Torna al progetto</span></a>
       <button type="button" class="sw s" id="deck-play" aria-pressed="true"><span lang="en">Auto scroll</span><span lang="it">Scorrimento</span></button>
       <button type="button" class="sw s" id="deck-audio" aria-pressed="false">Audio</button>
@@ -396,18 +396,16 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
 
   // ordered by interest for a visitor: most recent tech work first
   const P = [
-    { id: 'brd', file: 'BRD', y: '2026', year: '2026', client: T('R&amp;D project for fuse*', 'Progetto R&amp;D per fuse*'), city: 'Modena',
+    { id: 'brd', file: 'BRD', y: '2026', year: '2026', client: T('Research project, internship at fuse*', 'Progetto di ricerca, stage presso fuse*'), city: '',
       role: 'Creative Technologist', title: 'Biologia Surreale del Danno, γH2AX',
       covers: ['brd/brd-01.webp', 'brd/brd-05.webp', 'brd/brd-09.webp', 'brd/brd-13.webp', 'brd/brd-18.webp'],
-      text: T('An installation on radiation damage, born as R&amp;D for fuse*. A cell and an organism, the same event at two scales, caught when the damage can no longer be repaired. Black and white turns to colour as stability is lost. Images and video made with ComfyUI.',
-                 'Un’installazione sul danno da radiazione, nata come ricerca per fuse*. Una cellula e un organismo, lo stesso evento a due scale, nel momento in cui il danno non si ripara più. Il bianco e nero passa al colore man mano che la stabilità si perde. Immagini e video fatti con ComfyUI.'),
+      text: T('A research and development (R&D) project carried out during my internship at fuse*. It explores radiation damage at two scales, a cell and an organism, at the moment the damage can no longer be repaired: black and white turns to colour as stability is lost.',
+                 'Un progetto di ricerca e sviluppo (R&D) realizzato durante il mio stage presso fuse*. Esplora il danno da radiazione a due scale, una cellula e un organismo, nel momento in cui il danno non si ripara più: il bianco e nero passa al colore man mano che la stabilità si perde.'),
       tags: ['Real-time installation', 'R&amp;D', 'ComfyUI', 'TouchDesigner', 'Geiger counter'],
       shows: [{ items: Array.from({ length: 20 }, (_, i) => `brd/brd-${String(i + 1).padStart(2, '0')}.webp`) }],
       lead: { type: 'video', src: 'brd/brd-video.mp4' },
       // presentation: 51 pages at 16:9, videos placed in % of the page (left, top, width, height)
       deck: { pages: 51, dir: 'pres', videos: {
-        3: [['nuclear_fallout', 33.44, 33.10, 33.33, 33.33]],
-        18: [['atomic_alert_1951', 33.44, 27.55, 33.33, 44.44]],
         45: [['pj_testwan', 1.47, 13.06, 44.17, 78.52], ['insetti_09', 48.74, 4.91, 53.33, 94.81]],
         46: [['insetti_37', -3.11, 4.91, 53.33, 94.81], ['insetti_43', 48.74, 4.91, 53.33, 94.81]],
         47: [['pj_testwan', 1.47, 13.06, 44.17, 78.52], ['insetti_09', 48.74, 4.91, 53.33, 94.81], ['tdmovie_6', 16.67, 20.37, 66.67, 59.26]] } },
@@ -415,32 +413,35 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
       wip: [[['brd/brd-wip-1.mp4', 1024 / 768], ['brd/brd-wip-2.mp4', 1280 / 720]]],
       order: ['editorial'],
       editorial: [
+        [{ spec: [
+          [T('Context', 'Contesto'), T('Project developed during an internship at fuse*, with the support and resources of the studio. Research and development (R&D).', 'Progetto sviluppato nell’ambito di uno stage presso fuse*, con il supporto e le risorse dello studio. Ricerca e sviluppo (R&D).')],
+          [T('Team and contributions', 'Team e contributi'), T('Angela Deda, concept, research, visual system and real-time development. Riccardo Bazzoni, sound design.', 'Angela Deda, concept, ricerca, sistema visivo e sviluppo real-time. Riccardo Bazzoni, sound design.')],
+          [T('Personal contribution', 'Contributo personale'), T('Concept and scientific research; prompts and AI workflows in ComfyUI; selection and editing of images and videos; real-time system in TouchDesigner; Geiger tube integration and thermal printing; set-up of the installation for fuse* Open Studio 2026.', 'Concept e ricerca scientifica; prompt e workflow AI in ComfyUI; selezione e rielaborazione di immagini e video; sistema real-time in TouchDesigner; integrazione dei tubi Geiger e della stampa termica; allestimento dell’installazione per fuse* Open Studio 2026.')],
+          [T('Supervision / Mentoring', 'Supervisione / Mentoring'), T('Matteo Salsi, Mattia Carretti, fuse*', 'Matteo Salsi, Mattia Carretti, fuse*')],
+          [T('AI', 'AI'), T('Used as a tool. Images and videos were generated in ComfyUI with prompts and workflows I wrote, then selected, edited and integrated by me into the real-time system I built in TouchDesigner.', 'Usata come strumento. Immagini e video sono generati in ComfyUI con prompt e workflow scritti da me, poi selezionati, rielaborati e integrati da me nel sistema real-time che ho costruito in TouchDesigner.')],
+        ], c: '1 / 13' }],
         { cols: '1fr', items: [{ video: 'brd/brd-video.mp4', ratio: '1920 / 960' }] },
-        { sec: [[{ note: T('Archive footage', 'Materiale d’archivio'), c: '1 / 13' }],
-        { cols: '1.7778fr 1.3333fr', items: [{ video: 'pres/video/nuclear_fallout.mp4', ratio: '480 / 270' }, { video: 'pres/video/atomic_alert_1951.mp4', ratio: '480 / 360' }] }] },
         { sec: [
-          [{ note: T('Images, ComfyUI', 'Immagini, ComfyUI'), c: '1 / 13' }],
-          { cols: '1fr 1fr 1fr 1fr', items: [{ img: 'brd/brd-01.webp' }, { img: 'brd/brd-02.webp' }, { img: 'brd/brd-03.webp' }, { img: 'brd/brd-04.webp' }] },
-          { cols: '1fr 1fr 1fr 1fr', items: [{ img: 'brd/brd-05.webp' }, { img: 'brd/brd-06.webp' }, { img: 'brd/brd-07.webp' }, { img: 'brd/brd-08.webp' }] },
-          { cols: '1fr 1fr 1fr 1fr', items: [{ img: 'brd/brd-09.webp' }, { img: 'brd/brd-10.webp' }, { img: 'brd/brd-11.webp' }, { img: 'brd/brd-12.webp' }] },
-          { cols: '1fr 1fr 1fr 1fr', items: [{ img: 'brd/brd-13.webp' }, { img: 'brd/brd-14.webp' }, { img: 'brd/brd-15.webp' }, { img: 'brd/brd-16.webp' }] },
-          { cols: '1fr 1fr 1fr 1fr', items: [{ img: 'brd/brd-17.webp' }, { img: 'brd/brd-18.webp' }, { img: 'brd/brd-19.webp' }, { img: 'brd/brd-20.webp' }] },
-          { cols: '1fr 1fr 1fr', items: [{ sp: ['brd/brd-bw.jpg', 11, 0] }, { sp: ['brd/brd-bw.jpg', 11, 1] }, { sp: ['brd/brd-bw.jpg', 11, 2] }] },
-          { cols: '1fr 1fr 1fr 1fr', items: [{ sp: ['brd/brd-bw.jpg', 11, 3] }, { sp: ['brd/brd-bw.jpg', 11, 4] }, { sp: ['brd/brd-bw.jpg', 11, 5] }, { sp: ['brd/brd-bw.jpg', 11, 6] }] },
-          { cols: '1fr 1fr 1fr 1fr', items: [{ sp: ['brd/brd-bw.jpg', 11, 7] }, { sp: ['brd/brd-bw.jpg', 11, 8] }, { sp: ['brd/brd-bw.jpg', 11, 9] }, { sp: ['brd/brd-bw.jpg', 11, 10] }] }
+          [{ note: T('Images, AI-generated (ComfyUI), selected and edited', 'Immagini generate con AI (ComfyUI), selezionate e rielaborate'), c: '1 / 13' }],
+          { cols: '1fr 1fr 1fr', items: [{ img: 'brd/brd-01.webp' }, { img: 'brd/brd-05.webp' }, { img: 'brd/brd-09.webp' }] },
+          { cols: '1fr 1fr', items: [{ img: 'brd/brd-13.webp' }, { img: 'brd/brd-18.webp' }] },
         ] },
         { sec: [
-          [{ note: T('Video, ComfyUI', 'Video, ComfyUI'), c: '1 / 13' }],
-          { cols: '1fr 1fr 1fr', items: [{ video: 'pres/video/insetti_09.mp4', ratio: '1 / 1' }, { video: 'pres/video/insetti_37.mp4', ratio: '1 / 1' }, { video: 'pres/video/insetti_43.mp4', ratio: '1 / 1' }] },
-          { cols: '1fr 2fr', items: [{ video: 'pres/video/pj_testwan.mp4', ratio: '1 / 1' }, { video: 'pres/video/tdmovie_6.mp4', ratio: '960 / 480' }] },
-          { cols: '1fr 1fr', items: [{ video: 'brd/wip-insetti-37b.mp4', ratio: '1 / 1' }, { video: 'brd/wip-insetti-43b.mp4', ratio: '1 / 1' }] }
+          [{ note: T('Video, AI-generated (ComfyUI), edited in TouchDesigner', 'Video generati con AI (ComfyUI), montati in TouchDesigner'), c: '1 / 13' }],
+          { cols: '1fr 2fr', items: [{ video: 'pres/video/insetti_09.mp4', ratio: '1 / 1' }, { video: 'pres/video/tdmovie_6.mp4', ratio: '960 / 480' }] },
         ] },
-        { sec: [[{ note: T('First version, TouchDesigner', 'Prima versione, TouchDesigner'), c: '1 / 13' }],
-        { cols: '1.3333fr 1.7778fr', items: [{ video: 'brd/brd-wip-1.mp4', ratio: '1024 / 768' }, { video: 'brd/brd-wip-2.mp4', ratio: '1280 / 720' }] },
-        { cols: '1fr 1fr', items: [{ video: 'brd/wip-td-0.mp4', ratio: '1280 / 640' }, { video: 'brd/wip-td-3.mp4', ratio: '1280 / 640' }] }] },
+        { sec: [
+          [{ note: T('Sources and references', 'Fonti e riferimenti'), c: '1 / 13' }],
+          [{ spec: [
+            [T('Archive films', 'Film d’archivio'), 'Duck and Cover, Archer Productions, 1951. Atomic Alert (Elementary Version), Encyclopaedia Britannica Films, 1951. Operation Doorstep, 1953. Operation Ivy, Joint Task Force 132, 1952. Enewetak Atoll atomic bomb test, 1948. Fallout, Civil Defense film, 1955. Nuclear Radiation Fallout, Civil Defense film, 1961. The Medical Aspects of Nuclear Radiation. Internet Archive, Prelinger Archives, The Public Domain Review.'],
+            [T('Scientific images', 'Immagini scientifiche'), 'NASA Ames Research Center, A79-7022. NACA, Physicist Studying Alpha Rays (Bill Bowles). NASA, SAMPEX, A Synoptic View of Earth’s Electron Radiation Belts. Science Museum Group, Cloud chamber used by Rochester and Butler. Internet Archive.'],
+            [T('Historical illustrations', 'Illustrazioni storiche'), 'C. Croke, A sad memoriall of H. Curwen, 1638. Emblems Ancient and Modern, 1699. R. A. Proctor, Old and New Astronomy, 1892. C. Flammarion, Les étoiles et les curiosités du ciel, 1882. Internet Archive, The Public Domain Review.'],
+            [T('Scientific references', 'Riferimenti scientifici'), 'A. S. Eddington, The Internal Constitution of the Stars, 1926. G. Gamow, One, Two, Three… Infinity, 1947. Nuledo, Sulle camere a nebbia.'],
+          ], c: '1 / 13' }],
+        ] },
       ],
       // how the Geiger counter drives the installation, drawn in text
-      ascii: {"en": "GEIGER  /  SYSTEM                            BIOLOGIA SURREALE DEL DANNO\n\n  cosmic radiation · muons\n                    │\n                    ▼\n  ┌──────────────────────────────────┐\n  │ GEIGER COUNTER                   │   every muon that crosses the\n  │ Geiger-Müller tube               │   tube produces a pulse:\n  │ ·  ·   · ·· ·    ·  ·  ·         │   a beep\n  └─────────────────┬────────────────┘\n                    │ beep\n                    ▼\n  ┌──────────────────────────────────┐\n  │ ARDUINO                          │   reads every beep and sends\n  │ microcontroller code             │   it on as a MIDI signal\n  └───────┬────────────────────┬─────┘\n          │ MIDI               │ values\n          ▼                    ▼\n  ┌───────────────────┐  ┌────────────────────┐\n  │ TOUCHDESIGNER     │  │ THERMAL PRINTER    │\n  │ real-time system  │  │ prints the         │\n  └───┬─────────┬─────┘  │ radiation values   │\n      ▼         ▼        └────────────────────┘\n  ┌─────────┐┌─────────┐\n  │   CELL  ││ ORGANISM│\n  └─────────┘└─────────┘\n\n  STAGE 1 · no damage             beep        STAGE 2 · damage\n  black and white ──────────────── × ──────────►  colour\n  the system repairs               │           everything breaks", "it": "GEIGER  /  SISTEMA                           BIOLOGIA SURREALE DEL DANNO\n\n  radiazione cosmica · muoni\n                    │\n                    ▼\n  ┌──────────────────────────────────┐\n  │ CONTATORE GEIGER                 │   ogni muone che attraversa il\n  │ tubo Geiger-Müller               │   tubo produce un impulso:\n  │ ·  ·   · ·· ·    ·  ·  ·         │   un bip\n  └─────────────────┬────────────────┘\n                    │ bip\n                    ▼\n  ┌──────────────────────────────────┐\n  │ ARDUINO                          │   legge ogni bip e lo invia\n  │ codice sul microcontrollore      │   come segnale MIDI\n  └───────┬────────────────────┬─────┘\n          │ MIDI               │ valori\n          ▼                    ▼\n  ┌───────────────────┐  ┌────────────────────┐\n  │ TOUCHDESIGNER     │  │ STAMPANTE TERMICA  │\n  │ sistema real-time │  │ stampa i valori    │\n  └───┬─────────┬─────┘  │ della radiazione   │\n      ▼         ▼        └────────────────────┘\n  ┌─────────┐┌─────────┐\n  │ CELLULA ││ORGANISMO│\n  └─────────┘└─────────┘\n\n  STADIO 1 · nessun danno         bip         STADIO 2 · danno\n  bianco e nero ────────────────── × ──────────►  colore\n  il sistema ripara                │           si rompe tutto"} },
+      ascii: {"en": "GEIGER  /  SYSTEM                            BIOLOGIA SURREALE DEL DANNO\n\n  background radiation    \n                    │\n                    ▼\n  ┌──────────────────────────────────┐\n  │ GEIGER COUNTER                   │   every ionizing event in the\n  │ Geiger-Müller tube               │   tube produces a pulse:\n  │ ·  ·   · ·· ·    ·  ·  ·         │   a beep\n  └─────────────────┬────────────────┘\n                    │ beep\n                    ▼\n  ┌──────────────────────────────────┐\n  │ ARDUINO                          │   reads every beep and sends\n  │ microcontroller code             │   it on as a MIDI signal\n  └───────┬────────────────────┬─────┘\n          │ MIDI               │ values\n          ▼                    ▼\n  ┌───────────────────┐  ┌────────────────────┐\n  │ TOUCHDESIGNER     │  │ THERMAL PRINTER    │\n  │ real-time system  │  │ prints the         │\n  └───┬─────────┬─────┘  │ radiation values   │\n      ▼         ▼        └────────────────────┘\n  ┌─────────┐┌─────────┐\n  │   CELL  ││ ORGANISM│\n  └─────────┘└─────────┘\n\n  STAGE 1 · no damage             beep        STAGE 2 · damage\n  black and white ──────────────── × ──────────►  colour\n  the system repairs               │           everything breaks", "it": "GEIGER  /  SISTEMA                           BIOLOGIA SURREALE DEL DANNO\n\n  radiazione di fondo       \n                    │\n                    ▼\n  ┌──────────────────────────────────┐\n  │ CONTATORE GEIGER                 │   ogni evento ionizzante nel   \n  │ tubo Geiger-Müller               │   tubo produce un impulso:\n  │ ·  ·   · ·· ·    ·  ·  ·         │   un bip\n  └─────────────────┬────────────────┘\n                    │ bip\n                    ▼\n  ┌──────────────────────────────────┐\n  │ ARDUINO                          │   legge ogni bip e lo invia\n  │ codice sul microcontrollore      │   come segnale MIDI\n  └───────┬────────────────────┬─────┘\n          │ MIDI               │ valori\n          ▼                    ▼\n  ┌───────────────────┐  ┌────────────────────┐\n  │ TOUCHDESIGNER     │  │ STAMPANTE TERMICA  │\n  │ sistema real-time │  │ stampa i valori    │\n  └───┬─────────┬─────┘  │ della radiazione   │\n      ▼         ▼        └────────────────────┘\n  ┌─────────┐┌─────────┐\n  │ CELLULA ││ORGANISMO│\n  └─────────┘└─────────┘\n\n  STADIO 1 · nessun danno         bip         STADIO 2 · danno\n  bianco e nero ────────────────── × ──────────►  colore\n  il sistema ripara                │           si rompe tutto"} },
     { id: 'cs', file: 'CS', y: '2025', year: '2025', client: T('Thesis, NABA', 'Tesi, NABA'), city: '',
       role: T('Concept, editorial design, film', 'Concept, progettazione editoriale, film'), title: 'Coscienza Sintetica',
       covers: ['cs/cover.jpg'],
@@ -497,7 +498,7 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
           [{ img: 'cs/still-274.jpg', c: '1 / 7' }, { img: 'cs/still-298.jpg', c: '7 / 13' }],
         ] },
       ] },
-    { id: 'os', file: 'FUSE_OPEN_STUDIO', y: '2026', year: '2026', client: 'fuse*', city: 'Modena',
+    { id: 'os', file: 'FUSE_OPEN_STUDIO', y: '2026', year: '2026', client: 'fuse*', city: '',
       role: T('Poster design', 'Progettazione del poster'), title: T('fuse* Open Studio, 11th edition', 'fuse* Open Studio, 11ª edizione'),
       covers: ['os/os-front-black.jpg'],
       text: '',
@@ -513,8 +514,8 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
         { sec: [[{ note: T('Printed', 'Stampato'), c: '1 / 13' }],
         { cols: '0.5622fr 0.5639fr', items: [{ img: 'os/os-wall.jpg' }, { video: 'os/os-stairs.mp4', ratio: '406 / 720' }] }] },
       ] },
-    { id: 'fuse', file: 'FUSE', y: '2026', year: '2026', client: 'fuse*', city: 'Modena',
-      role: 'Interaction & Multimedia Designer', title: T('Real-time installations', 'Installazioni real-time'),
+    { id: 'fuse', file: 'FUSE', y: '2026', year: '2026', client: 'fuse*', city: '',
+      role: 'Creative Technologist', title: T('Real-time installations', 'Installazioni real-time'),
       text: T('At fuse* I design and build interactive installations and audiovisual work in TouchDesigner, somewhere between real-time graphics, space and the people moving through it.',
                  'A fuse* progetto e sviluppo installazioni interattive e lavori audiovisivi in TouchDesigner, tra grafica real-time, spazio e le persone che lo attraversano.'),
       tags: ['TouchDesigner', 'Generative', 'Interaction', 'Installation', 'Space', 'Geiger counter', 'Thermal printer'],
@@ -522,13 +523,14 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
       order: ['editorial', 'ascii', 'wip'],
       // the installation of Biologia Surreale del Danno at the fuse* Open Studio: the set up, output by output
       editorial: [
-      [{ title: [T('fuse* Open Studio, 2026', 'fuse* Open Studio, 2026'), 'Biologia Surreale del Danno'], c: '1 / 13' }],
-      [{ text: T('Two Geiger tubes listen to the particles crossing the room, mostly cosmic muons. Every pulse moves a screen, a sound and a thermal printer; when both tubes fire almost together, a video plays. Nothing runs on a timeline: the room decides. Shown at the fuse* Open Studio, fixed to the wall, cables in view.',
-                 'Due tubi Geiger ascoltano le particelle che attraversano la stanza, soprattutto muoni cosmici. Ogni impulso muove uno schermo, un suono e una stampante termica; quando i due tubi scattano quasi insieme parte un video. Niente segue una timeline: decide la stanza. Esposta all’Open Studio di fuse*, fissata a parete, con i cavi a vista.'), c: '1 / 6' }, { spec: [
-          [T('Detectors', 'Rilevatori'), T('Two Geiger tubes, cosmic radiation', 'Due tubi Geiger, radiazione cosmica')],
+      [{ title: ['', 'Biologia Surreale del Danno'], c: '1 / 13' }],
+      [{ text: T('Two Geiger tubes count the ionizing events passing through them. They register pulses, not the kind of particle: in a room most counts come from background radiation, partly cosmic, but the sensor cannot tell which. Every pulse moves a screen, a sound and a thermal printer; when both tubes fire almost together, a video plays. Nothing runs on a timeline: the room decides. Shown at the fuse* Open Studio, fixed to the wall, cables in view.',
+                 'Due tubi Geiger contano gli eventi ionizzanti che li attraversano. Registrano impulsi, non il tipo di particella: in una stanza gran parte dei conteggi viene dalla radiazione di fondo, in parte cosmica, ma il sensore non può distinguerla. Ogni impulso muove uno schermo, un suono e una stampante termica; quando i due tubi scattano quasi insieme parte un video. Niente segue una timeline: decide la stanza. Esposta all’Open Studio di fuse*, fissata a parete, con i cavi a vista.'), c: '1 / 6' }, { spec: [
+          [T('Detectors', 'Rilevatori'), T('Two Geiger tubes, pulse counts only', 'Due tubi Geiger, solo conteggio di impulsi')],
           [T('System', 'Sistema'), T('Microcomputer, software written for the work', 'Microcomputer, software scritto per l’opera')],
           [T('Outputs', 'Uscite'), T('Screen, sound, thermal print, video', 'Schermo, suono, stampa termica, video')],
-          [T('Images', 'Immagini'), T('Generated with ComfyUI, the same as the visual system', 'Generate con ComfyUI, le stesse del visual system')],
+          [T('Sound design', 'Sound design'), 'Riccardo Bazzoni'],
+          [T('Images', 'Immagini'), T('AI-generated with ComfyUI, selected and edited by me, the same as the visual system', 'Generate con AI in ComfyUI, selezionate e rielaborate da me, le stesse del visual system')],
         ], c: '7 / 13' }],
       [{ note: T('Images and visual system: <a href="#brd" style="color: var(--fg)">Biologia Surreale del Danno</a>',
                  'Immagini e visual system: <a href="#brd" style="color: var(--fg)">Biologia Surreale del Danno</a>'), c: '1 / 13' }],
@@ -536,13 +538,13 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
       [{ img: 'brd/setup/os-wall.jpg', c: '1 / 13' }],
     // each subject: its text on the left column, then a full-width row where every image shares one height (columns in the images' own ratios)
     { sec: [
-    [{ text: T('Two tubes. A particle passes, the tube clicks. When both click almost together, it is a coincidence.',
-                 'Due tubi. Passa una particella, il tubo fa clic. Quando scattano quasi insieme è una coincidenza.'), c: '1 / 6' },
+    [{ text: T('Two tubes. When an ionizing event crosses a tube it produces a pulse, a click. When both tubes click within a short time window, the software records a coincidence.',
+                 'Due tubi. Quando un evento ionizzante attraversa un tubo produce un impulso, un clic. Quando i due tubi scattano entro una breve finestra di tempo, il software registra una coincidenza.'), c: '1 / 6' },
      { img: 'brd/setup/os-geiger-board.jpg', c: '7 / 13' }],
     ] },
     { sec: [
-      [{ text: T('A panel of readings comes alive at every pulse. The numbers are real; only the type of particle is imagined, and the panel admits it. At each coincidence a video from the visual system takes over the screen.',
-                 'Un pannello di letture si anima a ogni impulso. I numeri sono veri; solo il tipo di particella è immaginato, e il pannello lo ammette. A ogni coincidenza un video del visual system prende lo schermo.'), c: '1 / 6' }],
+      [{ text: T('A panel of readings comes alive at every pulse. Measured: the time of each pulse and the counts per minute; the dose rate is estimated from the counts. Not measured: the type of particle and its description are modelled for the work, and the panel labels them as such. At each coincidence a video from the visual system takes over the screen.',
+                 'Un pannello di letture si anima a ogni impulso. Misurati: l’ora di ogni impulso e i conteggi al minuto; la dose è stimata a partire dai conteggi. Non misurati: il tipo di particella e la sua descrizione sono modellati per l’opera, e il pannello lo dichiara. A ogni coincidenza un video del visual system prende lo schermo.'), c: '1 / 6' }],
       { cols: '0.5628fr 1.7757fr', items: [{ img: 'brd/setup/os-screen.jpg' }, { img: 'brd/setup/os-wall-coincidence.jpg' }] },
       { cols: '1fr 1fr', items: [{ img: 'brd/setup/panel.png' }, { img: 'brd/setup/hud.png' }] },
     ] },
@@ -556,8 +558,13 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
                  'Sull’angolo della parete le immagini del visual system: cellule e organismi prima e dopo il danno. Sotto a tutto, un drone e un ritmo di click che ogni impulso disturba.'), c: '1 / 6' },
        { img: 'brd/setup/os-corner.jpg', c: '7 / 13' }],
     ] },
+      [{ spec: [
+        [T('Team and contributions', 'Team e contributi'), T('Angela Deda, concept, research, visual system and real-time development. Riccardo Bazzoni, sound design.', 'Angela Deda, concept, ricerca, sistema visivo e sviluppo real-time. Riccardo Bazzoni, sound design.')],
+        [T('Supervision / Mentoring', 'Supervisione / Mentoring'), T('Matteo Salsi, Mattia Carretti, fuse*', 'Matteo Salsi, Mattia Carretti, fuse*')],
+      ], c: '1 / 13' }],
+      [{ note: T('fuse* Open Studio, 2026. R&D research project, internship at fuse*', 'fuse* Open Studio, 2026. Progetto di ricerca R&D, stage presso fuse*'), c: '1 / 13' }],
       ],
-      flow: { en: '<div class="flow"><div class="fl-r"><span class="m">Particles in the room, cosmic muons</span></div><div class="fl-a">↓</div><div class="fl-r fl-2"><span>Geiger 1</span><span>Geiger 2</span></div><div class="fl-a">↓</div><div class="fl-r"><span>System, software written for the work</span><span class="m">Both tubes almost together: coincidence</span></div><div class="fl-a">↓</div><div class="fl-r fl-4"><span>Screen<br><span class="m">live data</span></span><span>Sound<br><span class="m">drone, clicks</span></span><span>Print<br><span class="m">thermal paper</span></span><span>Video<br><span class="m">at each coincidence</span></span></div><div class="fl-r fl-2 fl-n"><span class="m">Every pulse</span><span>panel, sound, a printed entry</span><span class="m">Coincidence</span><span>video, burst of clicks, full sheet</span></div></div>', it: '<div class="flow"><div class="fl-r"><span class="m">Particelle nella stanza, muoni cosmici</span></div><div class="fl-a">↓</div><div class="fl-r fl-2"><span>Geiger 1</span><span>Geiger 2</span></div><div class="fl-a">↓</div><div class="fl-r"><span>Sistema, software scritto per l’opera</span><span class="m">I due tubi quasi insieme: coincidenza</span></div><div class="fl-a">↓</div><div class="fl-r fl-4"><span>Schermo<br><span class="m">dati animati</span></span><span>Suono<br><span class="m">drone, click</span></span><span>Stampa<br><span class="m">carta termica</span></span><span>Video<br><span class="m">a ogni coincidenza</span></span></div><div class="fl-r fl-2 fl-n"><span class="m">Ogni impulso</span><span>pannello, suono, una voce stampata</span><span class="m">Coincidenza</span><span>video, raffica di click, foglio completo</span></div></div>' },
+      flow: { en: '<div class="flow"><div class="fl-r"><span class="m">Background radiation in the room, counted as pulses</span></div><div class="fl-a">↓</div><div class="fl-r fl-2"><span>Geiger 1</span><span>Geiger 2</span></div><div class="fl-a">↓</div><div class="fl-r"><span>System, software written for the work</span><span class="m">Both tubes almost together: coincidence</span></div><div class="fl-a">↓</div><div class="fl-r fl-4"><span>Screen<br><span class="m">live data</span></span><span>Sound<br><span class="m">drone, clicks</span></span><span>Print<br><span class="m">thermal paper</span></span><span>Video<br><span class="m">at each coincidence</span></span></div><div class="fl-r fl-2 fl-n"><span class="m">Every pulse</span><span>panel, sound, a printed entry</span><span class="m">Coincidence</span><span>video, burst of clicks, full sheet</span></div></div>', it: '<div class="flow"><div class="fl-r"><span class="m">Radiazione di fondo nella stanza, contata come impulsi</span></div><div class="fl-a">↓</div><div class="fl-r fl-2"><span>Geiger 1</span><span>Geiger 2</span></div><div class="fl-a">↓</div><div class="fl-r"><span>Sistema, software scritto per l’opera</span><span class="m">I due tubi quasi insieme: coincidenza</span></div><div class="fl-a">↓</div><div class="fl-r fl-4"><span>Schermo<br><span class="m">dati animati</span></span><span>Suono<br><span class="m">drone, click</span></span><span>Stampa<br><span class="m">carta termica</span></span><span>Video<br><span class="m">a ogni coincidenza</span></span></div><div class="fl-r fl-2 fl-n"><span class="m">Ogni impulso</span><span>pannello, suono, una voce stampata</span><span class="m">Coincidenza</span><span>video, raffica di click, foglio completo</span></div></div>' },
       wipLabel: T('First version, TouchDesigner', 'Prima versione, TouchDesigner'),
       wip: [[['brd/brd-wip-1.mp4', 1024 / 768], ['brd/brd-wip-2.mp4', 1280 / 720]], [['brd/brd-td-1.jpg', 2000 / 891], ['brd/brd-td-2.jpg', 1800 / 1482]]],
     },
@@ -740,6 +747,9 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
         ] },
       ] },
   ];
+  // projects held back from a published copy until they are approved
+  const HIDE = ['brd', 'fuse'];
+  for (const id of HIDE) { const i = P.findIndex(p => p.id === id); if (i >= 0) P.splice(i, 1); }
   const byId = Object.fromEntries(P.map(p => [p.id, p]));
   // set up of Biologia Surreale del Danno: its own page, reached from the project
   const fid = p => p.y ? `${p.file}_${p.y}` : p.file;
@@ -872,7 +882,7 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
   ];
   // mix: every work gets a random slot, so projects are scattered evenly through the corridor
   const VIS = (() => { let seed = 7; const R = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-    return GROUPS.flatMap(g => g.map((it, k) => ({ it, key: (k + R()) / g.length }))).sort((a, b) => a.key - b.key).map(o => o.it); })();
+    return GROUPS.map(g => g.filter(x => !HIDE.includes(x.p))).flatMap(g => g.map((it, k) => ({ it, key: (k + R()) / g.length }))).sort((a, b) => a.key - b.key).map(o => o.it); })();
   // 3D tunnel: images sit at increasing depth along a corridor; scrolling moves the camera through them
   let tun = null;
   const renderArchive = () => {
@@ -932,7 +942,8 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
   const stopDeck = () => { if (!deck) return; deck.vids.forEach(v => v.pause()); deck.on = false; };
   const renderDeck = p => {
     const d = p.deck, box = document.getElementById('deck-pages');
-    document.getElementById('deck-title').innerHTML = p.title;
+    document.getElementById('deck-title').innerHTML = 'EPK, ' + p.title;
+    document.getElementById('deck-ctx').innerHTML = p.id === 'brd' ? T('R&D research project developed during an internship at fuse*', 'Progetto di ricerca e sviluppo realizzato all’interno di un percorso di tirocinio presso fuse*') : '';
     document.getElementById('deck-back').href = `#${p.id}`;
     if (!deck || deck.id !== p.id) {
       box.innerHTML = Array.from({ length: d.pages }, (_, k) => {
@@ -1475,5 +1486,4 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
   [en, it].forEach(b => b.addEventListener('click', draw));
 })();
 </script>
-</body>
-</html>
+</body></html>
