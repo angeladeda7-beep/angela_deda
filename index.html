@@ -772,7 +772,7 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
   // Rinascente stays in the experience list but has no project page
   const rinascenteExp = { year: '2025', role: 'Set Designer', client: 'La Rinascente × Dentsu', city: 'Milano' };
   const szExp = { id: 'novantadieci', year: '2024', role: 'Graphic Designer', client: 'SZ Studio', city: 'Milano' };
-  document.getElementById('exp-body').innerHTML = [byId.fuse, byId.ldf, rinascenteExp, szExp, byId.voilap].map(p => p.id
+  document.getElementById('exp-body').innerHTML = [byId.fuse || { year: '2026', role: 'Creative Technologist', client: 'fuse*', city: '' }, byId.ldf, rinascenteExp, szExp, byId.voilap].filter(Boolean).map(p => p.id
     ? `<tr class="link" data-go="${p.id}"><td>${p.year}</td><td><a href="#${p.id}">${p.role}</a></td><td class="hide-s">${p.client}</td><td class="hide-s">${p.city}</td></tr>`
     : `<tr><td>${p.year}</td><td>${p.role}</td><td class="hide-s">${p.client}</td><td class="hide-s">${p.city}</td></tr>`).join('');
   document.addEventListener('click', e => { const r = e.target.closest('tr[data-go]'); if (r && !e.target.closest('a')) location.hash = r.dataset.go; });
