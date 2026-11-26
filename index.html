@@ -748,7 +748,7 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
       ] },
   ];
   // projects held back from a published copy until they are approved
-  const HIDE = ['brd', 'fuse'];
+  const HIDE = [];
   for (const id of HIDE) { const i = P.findIndex(p => p.id === id); if (i >= 0) P.splice(i, 1); }
   const byId = Object.fromEntries(P.map(p => [p.id, p]));
   // set up of Biologia Surreale del Danno: its own page, reached from the project
