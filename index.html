@@ -415,6 +415,7 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
       editorial: [
         [{ spec: [
           [T('Context', 'Contesto'), T('Project developed during an internship at fuse*, with the support and resources of the studio. Research and development (R&D).', 'Progetto sviluppato nell’ambito di uno stage presso fuse*, con il supporto e le risorse dello studio. Ricerca e sviluppo (R&D).')],
+          [T('Installation', 'Installazione'), T('<a href="#fuse" style="color: var(--fg)">Physical version, fuse* Open Studio 2026</a>', '<a href="#fuse" style="color: var(--fg)">Versione fisica, fuse* Open Studio 2026</a>')],
           [T('AI', 'AI'), T('Used as a tool. Images and videos were generated in ComfyUI with prompts and workflows I wrote, then selected, edited and integrated by me into the real-time system I built in TouchDesigner.', 'Usata come strumento. Immagini e video sono generati in ComfyUI con prompt e workflow scritti da me, poi selezionati, rielaborati e integrati da me nel sistema real-time che ho costruito in TouchDesigner.')],
         ], c: '1 / 13' }],
         { cols: '1fr', items: [{ video: 'brd/brd-video.mp4', ratio: '1920 / 960' }] },
@@ -518,16 +519,15 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
         { sec: [[{ note: T('Printed', 'Stampato'), c: '1 / 13' }],
         { cols: '0.5622fr 0.5639fr', items: [{ img: 'os/os-wall.jpg' }, { video: 'os/os-stairs.mp4', ratio: '406 / 720' }] }] },
       ] },
-    { id: 'fuse', file: 'FUSE', y: '2026', year: '2026', client: 'fuse*', city: '',
-      role: 'Creative Technologist', title: T('Real-time installations', 'Installazioni real-time'),
-      text: T('At fuse* I design and build interactive installations and audiovisual work in TouchDesigner, somewhere between real-time graphics, space and the people moving through it.',
-                 'A fuse* progetto e sviluppo installazioni interattive e lavori audiovisivi in TouchDesigner, tra grafica real-time, spazio e le persone che lo attraversano.'),
+    { id: 'fuse', file: 'BRD_INSTALLATION', y: '2026', year: '2026', client: T('Research project, internship at fuse*', 'Progetto di ricerca, stage presso fuse*'), city: '',
+      role: 'Creative Technologist', title: T('Biologia Surreale del Danno, installation', 'Biologia Surreale del Danno, installazione'),
+      text: T('The physical version of Biologia Surreale del Danno, shown at fuse* Open Studio 2026. The same research and the same images become an installation in the room, driven by the background radiation counted by two Geiger tubes.',
+                 'La versione fisica di Biologia Surreale del Danno, presentata al fuse* Open Studio 2026. La stessa ricerca e le stesse immagini diventano un’installazione nello spazio, mossa dalla radiazione di fondo contata da due tubi Geiger.'),
       tags: ['TouchDesigner', 'Generative', 'Interaction', 'Installation', 'Space', 'Geiger counter', 'Thermal printer'],
       covers: ['brd/setup/fuse-cover.jpg'],
       order: ['editorial', 'ascii', 'wip'],
       // the installation of Biologia Surreale del Danno at the fuse* Open Studio: the set up, output by output
       editorial: [
-      [{ title: ['', 'Biologia Surreale del Danno'], c: '1 / 13' }],
       [{ text: T('Two Geiger tubes count the ionizing events passing through them. They register pulses, not the kind of particle: in a room most counts come from background radiation, partly cosmic, but the sensor cannot tell which. Every pulse moves a screen, a sound and a thermal printer; when both tubes fire almost together, a video plays. Nothing runs on a timeline: the room decides. Shown at the fuse* Open Studio, fixed to the wall, cables in view.',
                  'Due tubi Geiger contano gli eventi ionizzanti che li attraversano. Registrano impulsi, non il tipo di particella: in una stanza gran parte dei conteggi viene dalla radiazione di fondo, in parte cosmica, ma il sensore non può distinguerla. Ogni impulso muove uno schermo, un suono e una stampante termica; quando i due tubi scattano quasi insieme parte un video. Niente segue una timeline: decide la stanza. Esposta all’Open Studio di fuse*, fissata a parete, con i cavi a vista.'), c: '1 / 6' }, { spec: [
           [T('Detectors', 'Rilevatori'), T('Two Geiger tubes, pulse counts only', 'Due tubi Geiger, solo conteggio di impulsi')],
@@ -536,8 +536,8 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
           [T('Sound design', 'Sound design'), 'Riccardo Bazzoni'],
           [T('Images', 'Immagini'), T('AI-generated with ComfyUI, selected and edited by me, the same as the visual system', 'Generate con AI in ComfyUI, selezionate e rielaborate da me, le stesse del visual system')],
         ], c: '7 / 13' }],
-      [{ note: T('Images and visual system: <a href="#brd" style="color: var(--fg)">Biologia Surreale del Danno</a>',
-                 'Immagini e visual system: <a href="#brd" style="color: var(--fg)">Biologia Surreale del Danno</a>'), c: '1 / 13' }],
+      [{ note: T('Digital version, images and visual system: <a href="#brd" style="color: var(--fg)">Biologia Surreale del Danno</a>',
+                 'Versione digitale, immagini e visual system: <a href="#brd" style="color: var(--fg)">Biologia Surreale del Danno</a>'), c: '1 / 13' }],
       // the installation as a whole, frontal, next to the wall at work: one shared height
       [{ img: 'brd/setup/os-wall.jpg', c: '1 / 13' }],
     // each subject: its text on the left column, then a full-width row where every image shares one height (columns in the images' own ratios)
@@ -776,7 +776,7 @@ img, video, canvas, .sp { -webkit-user-drag: none; user-select: none; -webkit-us
   // Rinascente stays in the experience list but has no project page
   const rinascenteExp = { year: '2025', role: 'Set Designer', client: 'La Rinascente × Dentsu', city: 'Milano' };
   const szExp = { id: 'novantadieci', year: '2024', role: 'Graphic Designer', client: 'SZ Studio', city: 'Milano' };
-  document.getElementById('exp-body').innerHTML = [byId.fuse || { year: '2026', role: 'Creative Technologist', client: 'fuse*', city: '' }, byId.ldf, rinascenteExp, szExp, byId.voilap].filter(Boolean).map(p => p.id
+  document.getElementById('exp-body').innerHTML = [{ year: '2026', role: 'Creative Technologist', client: 'fuse*', city: '' }, byId.ldf, rinascenteExp, szExp, byId.voilap].filter(Boolean).map(p => p.id
     ? `<tr class="link" data-go="${p.id}"><td>${p.year}</td><td><a href="#${p.id}">${p.role}</a></td><td class="hide-s">${p.client}</td><td class="hide-s">${p.city}</td></tr>`
     : `<tr><td>${p.year}</td><td>${p.role}</td><td class="hide-s">${p.client}</td><td class="hide-s">${p.city}</td></tr>`).join('');
   document.addEventListener('click', e => { const r = e.target.closest('tr[data-go]'); if (r && !e.target.closest('a')) location.hash = r.dataset.go; });
